@@ -8,17 +8,15 @@
       <h2 class="subtitle">
         Welcome to the iView + Nuxt.js template
       </h2>
-      <div class="links">
-        <Button type="primary" target="_blank" to="https://nuxtjs.org/">
-          Documentation
-        </Button>
-        <Button target="_blank" to="https://github.com/nuxt/nuxt.js">
-          GitHub
-        </Button>
-        <Button target="_blank" to="https://www.iviewui.com/">
-          iView
-        </Button>
-      </div>
+      <ul>
+      <li v-for="good in goods" :key="good.id">
+        <nuxt-link :to="{name:'index-id',params:{id:good.id}}">
+          <span>{{good.text}}</span>
+          <span>￥{{good.name}}</span>
+          <button @click.prevent="addCart(good)">加购物车</button>
+        </nuxt-link>
+      </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -26,6 +24,17 @@
 <script>
 import Logo from '~/components/Logo.vue'
 export default {
+  data() {
+    return {
+        goods: [
+            {id: 1, text:'test1', name:'text1'},
+            {id: 1, text:'test1', name:'text1'}
+        ]
+    }
+  },
+  methods: {
+    addCart(){}
+  },
   components: {
     Logo
   }

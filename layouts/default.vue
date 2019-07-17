@@ -1,6 +1,11 @@
 <template>
   <div>
-    <nuxt />
+    <!--nuxt / -->
+    <nav>
+      <nuxt-link to="/">Home</nuxt-link>
+      <NLink to="/admin">Admin</NLink>
+      <n-link to="/cart">Cart</n-link>
+    </nav>
   </div>
 </template>
 
