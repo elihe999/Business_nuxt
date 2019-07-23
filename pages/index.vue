@@ -26,6 +26,13 @@
 <script>
 // import Logo from '~/components/Logo.vue'
 export default {
+  head() {
+    return {
+      title: "calibe",
+      meta: [{ name: "description", hid: "description", content: "Calibe shenzhen"}],
+      link: [{ rel: "favicon", href: "favicon.ico" }],
+    };
+  },
   data() {
     return {
         goods: [
