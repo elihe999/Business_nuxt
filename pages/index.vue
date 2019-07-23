@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      <logo />
+      <!-- <logo /> -->
       <h1 class="title">
         Business_nuxt_frontpage
       </h1>
@@ -9,26 +9,29 @@
         Welcome to the iView + Nuxt.js template
       </h2>
       <ul>
-      <li v-for="good in goods" :key="good.id">
-        <nuxt-link :to="{name:'index-id',params:{id:good.id}}">
-          <span>{{good.text}}</span>
-          <span>￥{{good.name}}</span>
-          <button @click.prevent="addCart(good)">加购物车</button>
-        </nuxt-link>
-      </li>
+        <li v-for="good in goods" :key="good.id">
+          <nuxt-link :to="{name:'detail-id',params:{id: good.id}}">
+          <!-- <nuxt-link :to="`/detail/${good.id}`"> -->
+            <span>{{good.text}}</span>
+            <span>￥{{good.name}}</span>
+            <button @click.prevent="addCart(good)">ADD</button>
+          </nuxt-link>
+        </li>
       </ul>
+      <nuxt />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+// import Logo from '~/components/Logo.vue'
 export default {
   data() {
     return {
         goods: [
             {id: 1, text:'test1', name:'text1'},
-            {id: 1, text:'test1', name:'text1'}
+            {id: 2, text:'test2', name:'text2'},
+            {id: 3, text:'test3', name:'text3'}
         ]
     }
   },
@@ -36,7 +39,7 @@ export default {
     addCart(){}
   },
   components: {
-    Logo
+    // Logo
   }
 }
 </script>
