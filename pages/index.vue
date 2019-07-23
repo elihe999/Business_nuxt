@@ -18,6 +18,11 @@
           </nuxt-link>
         </li>
       </ul>
+      <Breadcrumb>
+        <BreadcrumbItem to="/">Home</BreadcrumbItem>
+        <BreadcrumbItem to="/components/breadcrumb">Components</BreadcrumbItem>
+        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
+      </Breadcrumb>
       <nuxt />
     </div>
   </div>
@@ -33,14 +38,21 @@ export default {
       link: [{ rel: "favicon", href: "favicon.ico" }],
     };
   },
-  data() {
-    return {
-        goods: [
-            {id: 1, text:'test1', name:'text1'},
-            {id: 2, text:'test2', name:'text2'},
-            {id: 3, text:'test3', name:'text3'}
-        ]
+  // data() {
+  //   return {
+  //       goods: [
+  //           {id: 1, text:'test1', name:'text1'},
+  //           {id: 2, text:'test2', name:'text2'},
+  //           {id: 3, text:'test3', name:'text3'}
+  //       ]
+  //   }
+  // },
+  async asyncData({$axios, error}) {
+    const {ok, goods} = await $axios.$get('/api/goods')
+    if (ok) {
+      return {goods}
     }
+    error({statusCode: 400, message: 'Failed to access data'})
   },
   methods: {
     addCart(){}

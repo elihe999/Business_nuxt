@@ -17,7 +17,7 @@ module.exports = {
   },
 
   // router: {
-  //   extendRouter
+    // middleware: ['']
   // },
   /*
   ** Customize the progress-bar color
@@ -33,13 +33,23 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview'
+    '@/plugins/iview',
+    "@/plugins/api-inject",
+    "@/plugins/interceptor"
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
+    "@nuxtjs/axios"
   ],
+  
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    "/api": "http://localhost:8090"
+  },
   /*
   ** Build configuration
   */
