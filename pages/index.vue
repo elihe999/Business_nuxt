@@ -2,12 +2,21 @@
   <div class="container">
     <div>
       <!-- <logo /> -->
+
       <h1 class="title">
         Business_nuxt_frontpage
       </h1>
       <h2 class="subtitle">
         Welcome to the iView + Nuxt.js template
       </h2>
+      <div class="pure-menu pure-menu-horizontal">
+          <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
+          <ul class="pure-menu-list">
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link">News</a></li>
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
+              <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
+          </ul>
+      </div>
       <ul>
         <li v-for="good in goods" :key="good.id">
           <nuxt-link :to="{name:'detail-id',params:{id: good.id}}">
@@ -30,6 +39,8 @@
 
 <script>
 // import Logo from '~/components/Logo.vue'
+import Purecss from 'purecss'
+// Vue.use(Purecss);
 export default {
   head() {
     return {

@@ -1,5 +1,30 @@
 <template>
   <div>
+    <i-menu mode="horizontal" :theme="menuTheme" active-name="1" @on-select="onMenuSelect">
+      <Menu-Item name="1">
+        <Icon type="ios-paper"></Icon>News
+      </Menu-Item>
+      <Menu-Item name="2">
+        <Icon type="ios-people"></Icon>Business
+      </Menu-Item>
+      <Submenu name="3">
+        <template slot="title">
+          <Icon type="stats-bars"></Icon>Product
+        </template>
+        <Menu-Group title="1">
+          <Menu-Item name="3-1">11</Menu-Item>
+          <Menu-Item name="3-2">12</Menu-Item>
+          <Menu-Item name="3-3">13</Menu-Item>
+        </Menu-Group>
+        <Menu-Group title="2">
+          <Menu-Item name="3-4">21</Menu-Item>
+          <Menu-Item name="3-5">22</Menu-Item>
+        </Menu-Group>
+      </Submenu>
+      <Menu-Item name="4">
+        <Icon type="settings"></Icon>http://wallimn.iteye.com
+      </Menu-Item>
+    </i-menu>
     <nuxt />
     <nav>
       <nuxt-link to="/">Home</nuxt-link>
@@ -11,8 +36,8 @@
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
