@@ -1,75 +1,39 @@
 <template>
   <div class="container">
     <div>
-      <!-- <logo /> -->
-
+      <logo />
       <h1 class="title">
-        Business_nuxt_frontpage
+        Business_nuxt
       </h1>
       <h2 class="subtitle">
-        Welcome to the iView + Nuxt.js template
+        My flawless Nuxt.js project
       </h2>
-      <div class="pure-menu pure-menu-horizontal">
-          <a href="#" class="pure-menu-heading pure-menu-link">BRAND</a>
-          <ul class="pure-menu-list">
-              <li class="pure-menu-item"><a href="#" class="pure-menu-link">News</a></li>
-              <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
-              <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
-          </ul>
+      <div class="links">
+        <a
+          href="https://nuxtjs.org/"
+          target="_blank"
+          class="button--green"
+        >
+          Documentation
+        </a>
+        <a
+          href="https://github.com/nuxt/nuxt.js"
+          target="_blank"
+          class="button--grey"
+        >
+          GitHub
+        </a>
       </div>
-      <ul>
-        <li v-for="good in goods" :key="good.id">
-          <nuxt-link :to="{name:'detail-id',params:{id: good.id}}">
-          <!-- <nuxt-link :to="`/detail/${good.id}`"> -->
-            <span>{{good.text}}</span>
-            <span>￥{{good.name}}</span>
-            <button @click.prevent="addCart(good)">ADD</button>
-          </nuxt-link>
-        </li>
-      </ul>
-      <Breadcrumb>
-        <BreadcrumbItem to="/">Home</BreadcrumbItem>
-        <BreadcrumbItem to="/components/breadcrumb">Components</BreadcrumbItem>
-        <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-      </Breadcrumb>
-      <nuxt />
     </div>
   </div>
 </template>
 
 <script>
-// import Logo from '~/components/Logo.vue'
-import Purecss from 'purecss'
-// Vue.use(Purecss);
+import Logo from '~/components/Logo.vue'
+
 export default {
-  head() {
-    return {
-      title: "calibe",
-      meta: [{ name: "description", hid: "description", content: "Calibe shenzhen"}],
-      link: [{ rel: "favicon", href: "favicon.ico" }],
-    };
-  },
-  // data() {
-  //   return {
-  //       goods: [
-  //           {id: 1, text:'test1', name:'text1'},
-  //           {id: 2, text:'test2', name:'text2'},
-  //           {id: 3, text:'test3', name:'text3'}
-  //       ]
-  //   }
-  // },
-  async asyncData({$axios, error}) {
-    const {ok, goods} = await $axios.$get('/api/goods')
-    if (ok) {
-      return {goods}
-    }
-    error({statusCode: 400, message: 'Failed to access data'})
-  },
-  methods: {
-    addCart(){}
-  },
   components: {
-    // Logo
+    Logo
   }
 }
 </script>
@@ -83,6 +47,7 @@ export default {
   align-items: center;
   text-align: center;
 }
+
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -92,6 +57,7 @@ export default {
   color: #35495e;
   letter-spacing: 1px;
 }
+
 .subtitle {
   font-weight: 300;
   font-size: 42px;
@@ -99,6 +65,7 @@ export default {
   word-spacing: 5px;
   padding-bottom: 15px;
 }
+
 .links {
   padding-top: 15px;
 }

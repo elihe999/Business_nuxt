@@ -15,10 +15,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // router: {
-    // middleware: ['']
-  // },
   /*
   ** Customize the progress-bar color
   */
@@ -27,37 +23,33 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
+    'element-ui/lib/theme-chalk/index.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/iview',
-    "@/plugins/api-inject",
-    "@/plugins/interceptor"
+    '@/plugins/element-ui'
+  ],
+  /*
+  ** Nuxt.js dev-modules
+  */
+  devModules: [
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    "@nuxtjs/axios"
   ],
-  
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    "/api": "http://localhost:8090"
-  },
   /*
   ** Build configuration
   */
   build: {
+    transpile: [/^element-ui/],
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
     }
   }
 }

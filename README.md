@@ -1,8 +1,6 @@
-# Business_nuxt_frontpage
+# Business_nuxt
 
-[![iView](https://img.shields.io/npm/v/iview.svg?style=flat-square)](https://www.npmjs.org/package/iview)
-
-> My gnarly Nuxt.js project
+> My flawless Nuxt.js project
 
 ## Build Setup
 
@@ -21,4 +19,4 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
