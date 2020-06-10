@@ -1,6 +1,9 @@
 <template>
   <div>
-    <nuxt />
+    <nuxt-link to="/">Home</nuxt-link>
+    <n-link to="/about">About</n-link>
+    <n-link to="/product">Product</n-link>
+    <nuxt/>
   </div>
 </template>
 
