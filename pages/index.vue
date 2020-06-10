@@ -1,39 +1,51 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        Business_nuxt
-      </h1>
-      <h2 class="subtitle">
-        My flawless Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <el-menu
+        :default-active="activeIndex"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <el-menu-item index="1">处理中心</el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">我的工作台</template>
+          <el-menu-item index="2-1">选项1</el-menu-item>
+          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <li v-for="good in goods" :key="good.id">
+            <nuxt-link :to="{name:'index-id',params:{id:good.id}}">
+              <span>{{good.text}}</span>
+              <span>￥{{good.price}}</span>
+              <button @click.prevent="addCart(good)">加购物车</button>
+            </nuxt-link>
+          </li>
+
+        </el-submenu>
+        <el-menu-item index="3" disabled>消息中心</el-menu-item>
+        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+      </el-menu>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 
 export default {
-  components: {
-    Logo
+  components: { 
+  },
+  data() {
+    return {
+      goods: [
+        {id:1, text: 'text1', price: 1111},
+        {id:2, text: 'text2', price: 2222}
+      ]
+    }
+  },
+  methods: {
+    addCart() {}
   }
 }
 </script>
